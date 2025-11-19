@@ -95,15 +95,9 @@ pub fn open_dashboard(app: tauri::AppHandle) -> Result<(), String> {
             .set_focus()
             .map_err(|e| format!("Failed to focus dashboard window: {}", e))?;
     } else {
-        // Window doesn't exist, create it
-        let window = create_dashboard_window(&app)
+        // Window doesn't exist, create it (will be visible by default)
+        create_dashboard_window(&app)
             .map_err(|e| format!("Failed to create dashboard window: {}", e))?;
-        window
-            .show()
-            .map_err(|e| format!("Failed to show dashboard window: {}", e))?;
-        window
-            .set_focus()
-            .map_err(|e| format!("Failed to focus dashboard window: {}", e))?;
     }
 
     Ok(())
@@ -133,15 +127,9 @@ pub fn toggle_dashboard(app: tauri::AppHandle) -> Result<(), String> {
             }
         }
     } else {
-        // Window doesn't exist, create it
-        let window = create_dashboard_window(&app)
+        // Window doesn't exist, create it (will be visible by default)
+        create_dashboard_window(&app)
             .map_err(|e| format!("Failed to create dashboard window: {}", e))?;
-        window
-            .show()
-            .map_err(|e| format!("Failed to show dashboard window: {}", e))?;
-        window
-            .set_focus()
-            .map_err(|e| format!("Failed to focus dashboard window: {}", e))?;
     }
 
     Ok(())
@@ -191,7 +179,7 @@ pub fn create_dashboard_window<R: Runtime>(
         .hidden_title(true)
         .title_bar_style(tauri::TitleBarStyle::Overlay)
         .content_protected(true)
-        .visible(false)
+        .visible(true)
         .traffic_light_position(LogicalPosition::new(14.0, 18.0));
 
     #[cfg(not(target_os = "macos"))]
@@ -202,7 +190,7 @@ pub fn create_dashboard_window<R: Runtime>(
         .inner_size(800.0, 600.0)
         .min_inner_size(800.0, 600.0)
         .content_protected(true)
-        .visible(false);
+        .visible(true);
 
     base_builder.build()
 }
