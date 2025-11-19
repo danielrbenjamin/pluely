@@ -87,13 +87,21 @@ pub fn set_window_height(window: tauri::WebviewWindow, height: u32) -> Result<()
 pub fn open_dashboard(app: tauri::AppHandle) -> Result<(), String> {
     // Check if dashboard window already exists
     if let Some(dashboard_window) = app.get_webview_window("dashboard") {
-        // Window exists, just focus and show it
-        dashboard_window
-            .set_focus()
-            .map_err(|e| format!("Failed to focus dashboard window: {}", e))?;
-        dashboard_window
-            .show()
-            .map_err(|e| format!("Failed to show dashboard window: {}", e))?;
+        // Try to show the window - if it fails, the window might be destroyed
+        match dashboard_window.show() {
+            Ok(_) => {
+                // Successfully shown, now focus it
+                dashboard_window
+                    .set_focus()
+                    .map_err(|e| format!("Failed to focus dashboard window: {}", e))?;
+            }
+            Err(_) => {
+                // Window reference exists but is invalid, destroy it and create new one
+                let _ = dashboard_window.destroy();
+                create_dashboard_window(&app)
+                    .map_err(|e| format!("Failed to create dashboard window: {}", e))?;
+            }
+        }
     } else {
         // Window doesn't exist, create it with platform-aware defaults
         create_dashboard_window(&app)
@@ -167,7 +175,7 @@ pub fn create_dashboard_window<R: Runtime>(
     app: &AppHandle<R>,
 ) -> Result<WebviewWindow<R>, tauri::Error> {
     let base_builder =
-        WebviewWindowBuilder::new(app, "dashboard", tauri::WebviewUrl::App("/chats".into()));
+        WebviewWindowBuilder::new(app, "dashboard", tauri::WebviewUrl::App("/dashboard".into()));
 
     #[cfg(target_os = "macos")]
     let base_builder = base_builder
