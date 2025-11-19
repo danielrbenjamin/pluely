@@ -11,7 +11,6 @@ import {
 } from "@/config";
 import {
   safeLocalStorage,
-  shouldUsePluelyAPI,
   generateConversationTitle,
   saveConversation,
   CONVERSATION_SAVE_DEBOUNCE_MS,

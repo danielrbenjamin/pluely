@@ -24,7 +24,6 @@ import moment from "moment";
 import { useParams, useNavigate } from "react-router-dom";
 import { PageLayout } from "@/layouts";
 import { useHistory, useChatCompletion } from "@/hooks";
-import { useApp } from "@/contexts";
 import {
   DeleteConfirmationDialog,
   ChatAudio,

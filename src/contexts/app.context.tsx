@@ -5,7 +5,6 @@ import {
   STORAGE_KEYS,
 } from "@/config";
 import { getPlatform, safeLocalStorage } from "@/lib";
-import { getShortcutsConfig } from "@/lib/storage";
 import {
   getCustomizableState,
   setCustomizableState,
