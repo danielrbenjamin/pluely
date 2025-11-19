@@ -6,6 +6,6 @@ We will investigate all legitimate reports and do our best to quickly fix the pr
 
 Our preference is that you make use of GitHub's private vulnerability reporting feature to disclose potential security vulnerabilities in our Open Source Software.
 
-To do this, please visit the [Security tab](https://github.com/iamsrikanthnani/pluely/security) of the repository and click the **"Report a vulnerability"** button.
+To do this, please visit the [Security tab](https://github.com/danielrbenjamin/friday/security) of the repository and click the **"Report a vulnerability"** button.
 
-For urgent matters, you can also contact us at [support@pluely.com](mailto:support@pluely.com).
+For urgent matters, you can also open an issue at [GitHub Issues](https://github.com/danielrbenjamin/friday/issues).

@@ -1,4 +1,4 @@
-// Simplified API module without Pluely server dependencies
+// Simplified API module without external server dependencies
 // All AI and STT processing is done using user's own API keys or local LLMs
 
 use serde::{Deserialize, Serialize};

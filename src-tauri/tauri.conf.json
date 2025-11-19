@@ -13,7 +13,7 @@
     "macOSPrivateApi": true,
     "windows": [
       {
-        "title": "Pluely - AI Assistant",
+        "title": "FRIDAY - AI Assistant",
         "width": 600,
         "height": 54,
         "decorations": false,
@@ -43,12 +43,12 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "resources": ["info.plist", "pluely.desktop"],
+    "resources": ["info.plist", "friday.desktop"],
     "macOS": { "minimumSystemVersion": "10.13" }
   },
   "plugins": {
     "sql": {
-      "preload": ["sqlite:pluely.db"]
+      "preload": ["sqlite:friday.db"]
     },
     "updater": {
       "endpoints": [],

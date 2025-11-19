@@ -4,7 +4,7 @@ const Dashboard = () => {
   return (
     <PageLayout
       title="Dashboard"
-      description="Pluely is now fully self-hosted. Configure your own AI providers and STT providers in Dev Space."
+      description="FRIDAY is fully self-hosted. Configure your own AI providers and STT providers in Dev Space."
     >
       <div className="p-6 rounded-lg border border-input/50 bg-muted/20">
         <h3 className="text-lg font-semibold mb-2">🎉 Fully Independent</h3>

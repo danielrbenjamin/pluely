@@ -74,11 +74,11 @@ export const useMenuItems = () => {
     {
       icon: BugIcon,
       label: "Report a bug",
-      href: "https://github.com/danielrbenjamin/pluely/issues/new",
+      href: "https://github.com/danielrbenjamin/friday/issues/new",
     },
     {
       icon: PowerIcon,
-      label: "Quit pluely",
+      label: "Quit FRIDAY",
       action: async () => {
         await invoke("exit_app");
       },
@@ -93,7 +93,7 @@ export const useMenuItems = () => {
     {
       title: "Github",
       icon: GithubIcon,
-      link: "https://github.com/danielrbenjamin/pluely",
+      link: "https://github.com/danielrbenjamin/friday",
     },
   ];
 

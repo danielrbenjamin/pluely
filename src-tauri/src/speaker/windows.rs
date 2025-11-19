@@ -1,4 +1,4 @@
-// Pluely windows speaker input and stream
+// FRIDAY windows speaker input and stream
 use anyhow::Result;
 use futures_util::Stream;
 use std::collections::VecDeque;

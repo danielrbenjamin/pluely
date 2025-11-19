@@ -15,7 +15,7 @@
 
 ## 🎯 **Fully Independent & Self-Hosted**
 
-This version of FRIDAY has been modified to be **completely independent** from any external servers or services. You have full control:
+This fork of Pluely has been modified to be **completely independent** from any external servers or services. You have full control:
 
 - ✅ **No license system** - All features are available to everyone
 - ✅ **No external API dependencies** - Use only your own AI provider API keys
@@ -90,7 +90,7 @@ Voice input can be used in the main overlay window or within chat conversations 
 
 ## Screenshot Capture
 
-Capture screenshots and send them to AI for visual analysis. Pluely offers two screenshot modes:
+Capture screenshots and send them to AI for visual analysis. FRIDAY offers two screenshot modes:
 
 **Screenshot Mode:** Capture the entire screen with a single click. The full screen is captured instantly and can be processed by AI.
 
@@ -108,7 +108,7 @@ Configure your preferred screenshot mode and processing behavior in the Screensh
 
 ## File Attachments
 
-Attach files to your AI conversations for analysis, review, or context. Pluely supports attaching multiple files at once, allowing you to send documents, images, code files, or any text-based content to the AI. Files are displayed as chips with file type indicators and can be removed individually or cleared all at once.
+Attach files to your AI conversations for analysis, review, or context. FRIDAY supports attaching multiple files at once, allowing you to send documents, images, code files, or any text-based content to the AI. Files are displayed as chips with file type indicators and can be removed individually or cleared all at once.
 
 Drag and drop files directly into the input area, or use the file attachment button to browse and select files from your system. Attached files are processed and sent alongside your text prompt to provide context for AI responses.
 
@@ -157,11 +157,11 @@ Configure core application behavior and appearance:
 
 **Theme Settings:** Switch between light, dark, and system themes. The theme applies globally across the entire application including the overlay window and dashboard.
 
-**Autostart:** Enable or disable automatic launch when your system starts. When enabled, Pluely launches silently in the background and is ready to use immediately.
+**Autostart:** Enable or disable automatic launch when your system starts. When enabled, FRIDAY launches silently in the background and is ready to use immediately.
 
-**App Icon Visibility:** Control whether the Pluely icon appears in your dock or taskbar. Hide the icon for maximum stealth during sensitive scenarios, or keep it visible for easy access.
+**App Icon Visibility:** Control whether the FRIDAY icon appears in your dock or taskbar. Hide the icon for maximum stealth during sensitive scenarios, or keep it visible for easy access.
 
-**Always On Top Mode:** Control whether the overlay window stays above all other applications. When enabled, Pluely remains visible regardless of which application you're using. Disable to allow the window to behave like normal applications.
+**Always On Top Mode:** Control whether the overlay window stays above all other applications. When enabled, FRIDAY remains visible regardless of which application you're using. Disable to allow the window to behave like normal applications.
 
 ## Responses
 
@@ -212,7 +212,7 @@ Manage cursor visibility and customize keyboard shortcuts:
 
 - **Toggle Dashboard:** Open or close the dashboard window (Default: `Cmd+Shift+D` / `Ctrl+Shift+D`)
 - **Toggle Window:** Show or hide the main overlay window (Default: `Cmd+\` / `Ctrl+\`)
-- **Refocus Input Box:** Bring Pluely forward and focus the input area (Default: `Cmd+Shift+I` / `Ctrl+Shift+I`)
+- **Refocus Input Box:** Bring FRIDAY forward and focus the input area (Default: `Cmd+Shift+I` / `Ctrl+Shift+I`)
 - **Move Window:** Hold modifier key and use arrow keys to move the overlay window continuously (Default: `Cmd` / `Ctrl`)
 - **System Audio:** Toggle system audio capture on or off (Default: `Cmd+Shift+M` / `Ctrl+Shift+M`)
 - **Voice Input:** Start voice recording for speech-to-text (Default: `Cmd+Shift+A` / `Ctrl+Shift+A`)
@@ -230,7 +230,7 @@ Configure AI language model providers from a comprehensive list of pre-configure
 
 **Custom AI Provider Setup:**
 
-Add any LLM provider using curl commands. Pluely supports full streaming and non-streaming capabilities with complete flexibility:
+Add any LLM provider using curl commands. FRIDAY supports full streaming and non-streaming capabilities with complete flexibility:
 
 1. Enter your curl command with the API endpoint and request structure
 2. Configure authentication using Bearer tokens, API keys, or custom headers
@@ -238,7 +238,7 @@ Add any LLM provider using curl commands. Pluely supports full streaming and non
 4. Toggle streaming support for real-time response generation
 5. Create custom variables using `{{VARIABLE_NAME}}` format in your curl command
 
-**Dynamic Variables:** Pluely automatically replaces these variables in your requests:
+**Dynamic Variables:** FRIDAY automatically replaces these variables in your requests:
 
 - `{{TEXT}}` - User's text input
 - `{{IMAGE}}` - Base64 encoded image data

@@ -1,1 +1,1 @@
-// Deleted components: PluelyApiSetup and Usage removed with license system
+// Deleted components: API setup and usage components removed with license system

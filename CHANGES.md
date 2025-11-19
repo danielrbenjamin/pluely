@@ -224,8 +224,8 @@ Users upgrading from a version with license requirements:
 ## Support
 
 For issues or questions, refer to:
-- GitHub Issues: https://github.com/iamsrikanthnani/pluely/issues
-- GitHub Discussions: https://github.com/iamsrikanthnani/pluely/discussions
+- GitHub Issues: https://github.com/danielrbenjamin/friday/issues
+- GitHub Discussions: https://github.com/danielrbenjamin/friday/discussions
 
 ---
 

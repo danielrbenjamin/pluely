@@ -134,7 +134,7 @@ export const PermissionFlow = ({
                     Select <strong>Screen & System Audio Recording</strong>
                   </li>
                   <li>
-                    Find <strong>Pluely</strong> and enable it
+                    Find <strong>FRIDAY</strong> and enable it
                   </li>
                   <li className="font-semibold text-orange-900">
                     Return here - we'll detect it automatically!
@@ -168,7 +168,7 @@ export const PermissionFlow = ({
                   Permission Required
                 </h3>
                 <p className="text-xs text-red-800 leading-relaxed mb-3">
-                  Pluely needs permission to capture system audio. This is
+                  FRIDAY needs permission to capture system audio. This is
                   required for the system audio feature to work.
                 </p>
 

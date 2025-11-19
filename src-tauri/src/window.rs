@@ -10,7 +10,7 @@ pub fn setup_main_window(app: &mut App) -> Result<(), Box<dyn std::error::Error>
     // Try different possible window labels
     let window = app
         .get_webview_window("main")
-        .or_else(|| app.get_webview_window("pluely"))
+        .or_else(|| app.get_webview_window("friday"))
         .or_else(|| {
             // Get the first window if specific labels don't work
             app.webview_windows().values().next().cloned()
@@ -87,25 +87,23 @@ pub fn set_window_height(window: tauri::WebviewWindow, height: u32) -> Result<()
 pub fn open_dashboard(app: tauri::AppHandle) -> Result<(), String> {
     // Check if dashboard window already exists
     if let Some(dashboard_window) = app.get_webview_window("dashboard") {
-        // Try to show the window - if it fails, the window might be destroyed
-        match dashboard_window.show() {
-            Ok(_) => {
-                // Successfully shown, now focus it
-                dashboard_window
-                    .set_focus()
-                    .map_err(|e| format!("Failed to focus dashboard window: {}", e))?;
-            }
-            Err(_) => {
-                // Window reference exists but is invalid, destroy it and create new one
-                let _ = dashboard_window.destroy();
-                create_dashboard_window(&app)
-                    .map_err(|e| format!("Failed to create dashboard window: {}", e))?;
-            }
-        }
+        // Window exists, just show and focus it
+        dashboard_window
+            .show()
+            .map_err(|e| format!("Failed to show dashboard window: {}", e))?;
+        dashboard_window
+            .set_focus()
+            .map_err(|e| format!("Failed to focus dashboard window: {}", e))?;
     } else {
-        // Window doesn't exist, create it with platform-aware defaults
-        create_dashboard_window(&app)
+        // Window doesn't exist, create it
+        let window = create_dashboard_window(&app)
             .map_err(|e| format!("Failed to create dashboard window: {}", e))?;
+        window
+            .show()
+            .map_err(|e| format!("Failed to show dashboard window: {}", e))?;
+        window
+            .set_focus()
+            .map_err(|e| format!("Failed to focus dashboard window: {}", e))?;
     }
 
     Ok(())
@@ -116,10 +114,10 @@ pub fn toggle_dashboard(app: tauri::AppHandle) -> Result<(), String> {
     if let Some(dashboard_window) = app.get_webview_window("dashboard") {
         match dashboard_window.is_visible() {
             Ok(true) => {
-                // Window is visible, hide it
+                // Window is visible, close it (destroy to save memory)
                 dashboard_window
-                    .hide()
-                    .map_err(|e| format!("Failed to hide dashboard window: {}", e))?;
+                    .close()
+                    .map_err(|e| format!("Failed to close dashboard window: {}", e))?;
             }
             Ok(false) => {
                 // Window is hidden, show and focus it
@@ -136,8 +134,14 @@ pub fn toggle_dashboard(app: tauri::AppHandle) -> Result<(), String> {
         }
     } else {
         // Window doesn't exist, create it
-        create_dashboard_window(&app)
+        let window = create_dashboard_window(&app)
             .map_err(|e| format!("Failed to create dashboard window: {}", e))?;
+        window
+            .show()
+            .map_err(|e| format!("Failed to show dashboard window: {}", e))?;
+        window
+            .set_focus()
+            .map_err(|e| format!("Failed to focus dashboard window: {}", e))?;
     }
 
     Ok(())
@@ -179,7 +183,7 @@ pub fn create_dashboard_window<R: Runtime>(
 
     #[cfg(target_os = "macos")]
     let base_builder = base_builder
-        .title("Pluely - Dashboard")
+        .title("FRIDAY - Dashboard")
         .center()
         .decorations(true)
         .inner_size(1200.0, 800.0)
@@ -187,18 +191,18 @@ pub fn create_dashboard_window<R: Runtime>(
         .hidden_title(true)
         .title_bar_style(tauri::TitleBarStyle::Overlay)
         .content_protected(true)
-        .visible(true)
+        .visible(false)
         .traffic_light_position(LogicalPosition::new(14.0, 18.0));
 
     #[cfg(not(target_os = "macos"))]
     let base_builder = base_builder
-        .title("Pluely - Dashboard")
+        .title("FRIDAY - Dashboard")
         .center()
         .decorations(true)
         .inner_size(800.0, 600.0)
         .min_inner_size(800.0, 600.0)
         .content_protected(true)
-        .visible(true);
+        .visible(false);
 
     base_builder.build()
 }
